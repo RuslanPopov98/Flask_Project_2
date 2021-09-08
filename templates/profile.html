@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block container %}
+  <main class="container mt-3">
+    <div class="card my-4 mx-auto">
+      <div class="card-body m-2 m-md-4">
+        <article class="row">
+          <div class="col-5"><img src="{{ profile.picture }}" class="img-fluid" alt=""></div>
+          <div class="col-7">
+
+            <section class="teacher=info">
+
+              <h1 class="h2">{{ profile.name }}</h1>
+              <p><span class="badge badge-secondary mr-2">
+
+              {% for i in profile.goals %}
+                {{ i }}
+              {% endfor %}
+
+              </span>Рейтинг: {{ profile.rating }} Ставка: {{ profile.price }} / час</p>
+              <p> {{ profile.about }} </p>
+
+            </section>
+
+            <section class="available">
+
+              <h4 class="mb-4 mt-5">Записаться на пробный урок</h4>
+
+              {% for day in profile.free %}
+                <h6 class="mt-4"> {{ days_week[day] }} </h6>
+
+                {% for free_time in profile.free[day] %}
+                  {% if profile.free[day][free_time] %}
+                    <a href="/booking/{{profile.id}}/{{day}}/{{free_time}}" class="btn btn-outline-success mr-2">{{ free_time }} свободно</a>
+                  {% endif %}
+                {% endfor %}
+                {% if profile.free[day]=="Нет свободных уроков" %}
+                    <p>{{ profile.free[day] }}</p>
+                {% endif %}
+
+              {% endfor %}
+
+            </section>
+
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </main>
+  {% endblock %}
