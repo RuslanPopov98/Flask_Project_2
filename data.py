@@ -289,7 +289,7 @@ teachers = [
 
     {
         "id": 9,
-        "name": "Seeta Y.",
+        "name": "Syeta Y.",
         "about": "Hello and welcome to my profile learners of the wonderful world of the English language! I am a "
                  "certified native English teacher with an A in TEFL. Learning something new should be fun and "
                  "exciting and not something you’re dragging your feet into doing which is why I believe a little fun "
